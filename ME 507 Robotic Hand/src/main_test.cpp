@@ -4,14 +4,36 @@
 // ESP32 Guide: https://RandomNerdTutorials.com/esp32-mpu-6050-accelerometer-gyroscope-arduino/
 // ESP8266 Guide: https://RandomNerdTutorials.com/esp8266-nodemcu-mpu-6050-accelerometer-gyroscope-arduino/
 // Arduino Guide: https://RandomNerdTutorials.com/arduino-mpu-6050-accelerometer-gyroscope/
+// Motor Driver Guide: https://github.com/natnqweb/Motor_PID
+
 #include <Arduino.h>
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <Wire.h> 
 #include <ESP32Servo.h>
 #include <ESP32Encoder.h>
+#include <Motor_PID.h>
 
-// Defining Encoder 
+// Defining Motor and Encoder 
+#define A_ENCA 33
+#define A_ENCB 32 
+#define A_IN1 8
+#define A_IN2 7
+#define PWM_A 6
+
+// PID Variables
+long prevT;
+int target = 900;
+
+float kp = 1;
+float kd = 0.1;
+float ki = .02;
+//int pwm_lower_limit=20;//to balance voltage if you are using too powerful power source  // limited
+//int pwm_upper_limit=100;//to balance voltage if you are using too powerful power source  // limited
+int pwm_lower_limit=0;//full range
+int pwm_upper_limit=255;//full range
+//int target = 50*sin(prevT/1e6);
+motor motor1(A_ENCA, A_ENCB, A_IN2, A_IN1, PWM_A, pwm_lower_limit, pwm_upper_limit);
 
 
 // Test Defines
@@ -48,7 +70,6 @@ void setup(void) {
 
   Serial.println("Adafruit MPU6050 test!");
 
-
   // Test Servo Attachment 
   servoMotor.attach(SERVO_PIN);
   servoMotor2.attach(SERVO_PIN2);
@@ -57,7 +78,6 @@ void setup(void) {
   delay(30);
   servoMotor.write(0);
   servoMotor.write(0);
-
   
   // Hand Servo Setup and sequence
   // ThumbServo.attach(THUMB_PIN);
@@ -177,6 +197,9 @@ void loop() {
   
   servoMotor2.write(value2);
   delay(100);
+
+  motor1.init(kp, kd, ki);
+  motor1.set_target(target);
 
 
 }
