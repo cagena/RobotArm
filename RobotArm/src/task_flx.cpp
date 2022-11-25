@@ -6,6 +6,11 @@
  */
 
 #include <Arduino.h>
+#include <PrintStream.h>
+#include "taskshare.h"
+#include "taskqueue.h"
+#include "shares.h"
+#include "task_flx.h"
 
 //Defining Fingers Resistance Measurement
 #define THUMB_R 12
@@ -15,7 +20,13 @@
 #define PINKY_R 25
 
 int thumb_flx, pointer_flx, middle_flx, ring_flx, pinky_flx ;
-int thumb_pwm, pointer_pwm, middle_pwm, ring_pwm, pinky_pwm;
+
+// Shares which hold the pwm values for the servo motor.
+Share<uint8_t> thumb_pwm (0);
+Share<uint8_t> pointer_pwm (0);
+Share<uint8_t> middle_pwm (0);
+Share<uint8_t> ring_pwm (0);
+Share<uint8_t> pinky_pwm (0);
 
 /** @brief   Task which implements the flex sensors.
  *  @details This task reads the voltage from the flex sensors and writes a
@@ -26,19 +37,19 @@ void task_flx (void* p_params)
     while (true)
     {
         thumb_flx = analogRead(THUMB_R);
-        thumb_pwm = map(thumb_flx, 0, 4095, 0, 180);
+        thumb_pwm.put(map(thumb_flx, 0, 4095, 0, 180));
 
         pointer_flx = analogRead(POINTER_R);
-        pointer_pwm = map(pointer_flx, 0, 4095, 0, 180);
+        pointer_pwm.put(map(pointer_flx, 0, 4095, 0, 180));
 
         middle_flx = analogRead(MIDDLE_R);
-        middle_pwm = map(middle_flx, 0, 4095, 0, 180);
+        middle_pwm.put(map(middle_flx, 0, 4095, 0, 180));
 
         ring_flx = analogRead(RING_R);
-        ring_pwm = map(ring_flx, 0, 4095, 0, 180);
+        ring_pwm.put(map(ring_flx, 0, 4095, 0, 180));
 
         pinky_flx = analogRead(RING_R);
-        pinky_pwm = map(pinky_flx, 0, 4095, 0, 180);
+        pinky_pwm.put(map(pinky_flx, 0, 4095, 0, 180));
         vTaskDelay(10);
     } 
 }
