@@ -2,6 +2,9 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h> 
 #include <ESP32Servo.h>
+#include "task_imu.h"
+#include "task_flx.h"
+#include "task_fingers.h"
 
 //Defining Fingers Resistance Measurement
 #define THUMB_R 12
@@ -128,65 +131,65 @@ void setup(void) {
   Serial.println("");
   delay(100);
 
-  xTaskCreate (task_IMU,"IMU", 2048, NULL, 3, NULL);
+  xTaskCreate (task_imu,"IMU", 2048, NULL, 3, NULL);
   xTaskCreate (task_flx, "Flex Sensor", 2048, NULL, 4, NULL);
   xTaskCreate (task_fingers, "Finger Servos", 2048, NULL, 4, NULL);
 
 }
 
 // Flick of the Wrist
-void task_IMU (void* p_params)
-{
-    while (true)
-    {
-        sensors_event_t a, g, temp;
-        mpu.getEvent(&a, &g, &temp);
-        ax = map (a.acceleration.x, -10, 10, 0, 180);
-        ay = map (a.acceleration.y, -10, 10, 0, 180);
-        vTaskDelay (10);
-    }
+// void task_IMU (void* p_params)
+// {
+//     while (true)
+//     {
+//         sensors_event_t a, g, temp;
+//         mpu.getEvent(&a, &g, &temp);
+//         ax = map (a.acceleration.x, -10, 10, 0, 180);
+//         ay = map (a.acceleration.y, -10, 10, 0, 180);
+//         vTaskDelay (10);
+//     }
     
-}
+// }
 
 void task_wrist (void* p_params)
 {
     
 }
 // Fingers!!
-void task_flx (void* p_params)
-{
-    while (true)
-    {
-        thumb_flx = analogRead(THUMB_R);
-        thumb_pwm = map(thumb_flx, 0, 4095, 0, 180);
+// void task_flx (void* p_params)
+// {
+//     while (true)
+//     {
+//         thumb_flx = analogRead(THUMB_R);
+//         thumb_pwm = map(thumb_flx, 0, 4095, 0, 180);
 
-        pointer_flx = analogRead(POINTER_R);
-        pointer_pwm = map(pointer_flx, 0, 4095, 0, 180);
+//         pointer_flx = analogRead(POINTER_R);
+//         pointer_pwm = map(pointer_flx, 0, 4095, 0, 180);
 
-        middle_flx = analogRead(MIDDLE_R);
-        middle_pwm = map(middle_flx, 0, 4095, 0, 180);
+//         middle_flx = analogRead(MIDDLE_R);
+//         middle_pwm = map(middle_flx, 0, 4095, 0, 180);
 
-        ring_flx = analogRead(RING_R);
-        ring_pwm = map(ring_flx, 0, 4095, 0, 180);
+//         ring_flx = analogRead(RING_R);
+//         ring_pwm = map(ring_flx, 0, 4095, 0, 180);
 
-        pinky_flx = analogRead(RING_R);
-        pinky_pwm = map(pinky_flx, 0, 4095, 0, 180);
-        vTaskDelay(10);
-    } 
-}
+//         pinky_flx = analogRead(RING_R);
+//         pinky_pwm = map(pinky_flx, 0, 4095, 0, 180);
+//         vTaskDelay(10);
+//     } 
+// }
 
-void task_fingers (void* p_params)
-{
-    while (true)
-    {
-        ThumbServo.write(thumb_pwm);
-        PointerServo.write(pointer_pwm);
-        MiddleServo.write(middle_pwm);
-        RingServo.write(ring_pwm);
-        PinkyServo.write(pinky_pwm);
-        vTaskDelay(50);            
-    } 
-}
+// void task_fingers (void* p_params)
+// {
+//     while (true)
+//     {
+//         ThumbServo.write(thumb_pwm);
+//         PointerServo.write(pointer_pwm);
+//         MiddleServo.write(middle_pwm);
+//         RingServo.write(ring_pwm);
+//         PinkyServo.write(pinky_pwm);
+//         vTaskDelay(50);            
+//     } 
+// }
 
 
 void loop (void) {}
