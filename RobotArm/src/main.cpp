@@ -39,6 +39,23 @@
 // Adafruit_MPU6050 mpu;
 // int ax, ay, az ;
 
+void task_print(void* p_params)
+{
+  for(;;)
+  {
+    Serial.print(thumb_pwm.get());
+    Serial.print(',');
+    Serial.print(pointer_pwm.get());
+    Serial.print(',');
+    Serial.print(middle_pwm.get());
+    Serial.print(',');
+    Serial.print(ring_pwm.get());
+    Serial.print(',');
+    Serial.println(pinky_pwm.get());
+    vTaskDelay (1000);
+  }
+}
+
 void setup(void) {
   Serial.begin(115200);
   while (!Serial)
@@ -139,6 +156,7 @@ void setup(void) {
   xTaskCreate (task_imu,"IMU", 2048, NULL, 3, NULL);
   xTaskCreate (task_flx, "Flex Sensor", 2048, NULL, 4, NULL);
   xTaskCreate (task_fingers, "Finger Servos", 2048, NULL, 4, NULL);
+  xTaskCreate (task_print, "Print PWM", 2048, NULL, 1, NULL);
 
 }
 
