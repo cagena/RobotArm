@@ -42,7 +42,6 @@ void task_print(void* p_params)
 {
   for(;;)
   {
-    Serial.print(',');
     Serial.print(thumb_pwm.get());
     Serial.print(',');
     Serial.print(pointer_pwm.get());
