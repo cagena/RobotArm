@@ -8,7 +8,6 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h> 
 #include <ESP32Servo.h>
-#include "task_imu.h"
 #include "task_flx.h"
 #include "task_fingers.h"
 
@@ -154,7 +153,6 @@ void setup(void) {
   Serial.println("");
   delay(100);
 
-  xTaskCreate (task_imu,"IMU", 2048, NULL, 3, NULL);
   xTaskCreate (task_flx, "Flex Sensor", 2048, NULL, 4, NULL);
   xTaskCreate (task_fingers, "Finger Servos", 2048, NULL, 5, NULL);
   xTaskCreate (task_print, "Print PWM", 2048, NULL, 1, NULL);
