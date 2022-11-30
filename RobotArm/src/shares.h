@@ -22,6 +22,10 @@ extern Share<uint8_t> middle_pwm;
 extern Share<uint8_t> ring_pwm;
 extern Share<uint8_t> pinky_pwm;
 
+// Share which hold the imu values for the wrist and linear actuator
+extern Share<uint8_t> ax_pwm;
+extern Share<uint8_t> ay_pwm;
+
 // A queue which triggers a task to print the count at certain times
 //extern Queue<uint16_t> data_queue;
 

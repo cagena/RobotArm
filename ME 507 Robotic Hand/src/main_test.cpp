@@ -168,6 +168,9 @@ void setup(void) {
 
   Serial.println("");
   delay(100);
+
+  motor1.init(kp, kd, ki);
+  motor1.set_target(target);
 }
 
 void loop() {
@@ -198,8 +201,12 @@ void loop() {
   servoMotor2.write(value2);
   delay(100);
 
-  motor1.init(kp, kd, ki);
-  motor1.set_target(target);
+  motor1.start();
+
+  if(motor1.get_position()==target) 
+  {
+  motor1.turn_off();
+  }
 
 
 }
