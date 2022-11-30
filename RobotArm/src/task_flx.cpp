@@ -37,19 +37,19 @@ void task_flx (void* p_params)
     while (true)
     {
         thumb_flx = analogRead(THUMB_R);
-        thumb_pwm.put(map(thumb_flx, 0, 4095, 0, 180));
+        thumb_pwm.put(map(thumb_flx, 0, 4095, 180, 0));
 
         pointer_flx = analogRead(POINTER_R);
-        pointer_pwm.put(map(pointer_flx, 0, 4095, 0, 180));
+        pointer_pwm.put(map(pointer_flx, 0, 4095, 180, 0));
 
         middle_flx = analogRead(MIDDLE_R);
-        middle_pwm.put(map(middle_flx, 0, 4095, 0, 180));
+        middle_pwm.put(map(middle_flx, 0, 4095, 180, 0));
 
         ring_flx = analogRead(RING_R);
-        ring_pwm.put(map(ring_flx, 0, 4095, 0, 180));
+        ring_pwm.put(map(ring_flx, 0, 4095, 180, 0));
 
         pinky_flx = analogRead(RING_R);
-        pinky_pwm.put(map(pinky_flx, 0, 4095, 0, 180));
+        pinky_pwm.put(map(pinky_flx, 0, 4095, 180, 0));
         vTaskDelay(10);
     } 
 }

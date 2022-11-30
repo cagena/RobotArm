@@ -43,11 +43,50 @@ void task_fingers (void* p_params)
 
     while (true)
     {
-        ThumbServo.write(thumb_pwm.get());
-        PointerServo.write(pointer_pwm.get());
-        MiddleServo.write(middle_pwm.get());
-        RingServo.write(ring_pwm.get());
-        PinkyServo.write(pinky_pwm.get());
-        vTaskDelay(50);            
+        if (thumb_pwm.get() >= 50)
+        {  
+            ThumbServo.write(180);
+        }
+        else
+        {
+            ThumbServo.write(0);
+        }
+
+        if (pointer_pwm.get() >= 50)
+        {  
+            PointerServo.write(180);
+        }
+        else
+        {
+            PointerServo.write(0);
+        }
+
+        if (middle_pwm.get() >= 50)
+        {  
+            MiddleServo.write(180);
+        }
+        else
+        {
+            MiddleServo.write(0);
+        }
+
+        if (ring_pwm.get() >= 50)
+        {  
+            RingServo.write(180);
+        }
+        else
+        {
+            RingServo.write(0);
+        }
+
+        if (pinky_pwm.get() >= 50)
+        {  
+            PinkyServo.write(180);
+        }
+        else
+        {
+            PinkyServo.write(0);
+        }
+        vTaskDelay(10);            
     } 
 }
