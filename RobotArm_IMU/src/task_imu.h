@@ -9,4 +9,4 @@
 /** @brief   Task which implements the Adafruit_MPU6050.h library.
  *  @details This task reads the IMU for acceleration in the x and y direction.
  */
-void task_imu (void* p_params);
+// void task_imu (void* p_params);
