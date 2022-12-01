@@ -25,9 +25,6 @@ void task_imu (void* p_params)
 {
     if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
-    while (1) {
-      delay(10);
-    }
     }
 
     else

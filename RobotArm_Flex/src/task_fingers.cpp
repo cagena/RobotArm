@@ -45,47 +45,47 @@ void task_fingers (void* p_params)
     {
         if (thumb_pwm.get() >= 50)
         {  
-            ThumbServo.write(180);
+            ThumbServo.write(0);
         }
         else
         {
-            ThumbServo.write(0);
+            ThumbServo.write(180);
         }
 
         if (pointer_pwm.get() >= 50)
         {  
-            PointerServo.write(180);
+            PointerServo.write(0);
         }
         else
         {
-            PointerServo.write(0);
+            PointerServo.write(180);
         }
 
         if (middle_pwm.get() >= 50)
         {  
-            MiddleServo.write(180);
+            MiddleServo.write(0);
         }
         else
         {
-            MiddleServo.write(0);
+            MiddleServo.write(180);
         }
 
         if (ring_pwm.get() >= 50)
         {  
-            RingServo.write(180);
+            RingServo.write(0);
         }
         else
         {
-            RingServo.write(0);
+            RingServo.write(180);
         }
 
         if (pinky_pwm.get() >= 50)
         {  
-            PinkyServo.write(180);
+            PinkyServo.write(0);
         }
         else
         {
-            PinkyServo.write(0);
+            PinkyServo.write(180);
         }
         vTaskDelay(10);            
     } 

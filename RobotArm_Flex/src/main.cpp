@@ -10,6 +10,10 @@
 #include <ESP32Servo.h>
 #include "task_flx.h"
 #include "task_fingers.h"
+#include <WebServer.h>
+// #include "task_mqtt.h"
+
+
 
 // //Defining Fingers Resistance Measurement
 // #define THUMB_R 12
@@ -55,12 +59,39 @@ void task_print(void* p_params)
   }
 }
 
+
+// /** @brief   Task which sends a high frequency signal to show it can run fast.
+//  *  @details This task sends a square wave signal with a frequency of 500 Hz 
+//  *           and a duty cyle of 50%. Its purpose in the WiFi demonstration is
+//  *           to verify that a fast task can run at higher priority than the
+//  *           WiFi task and keep relatively accurate timing. 
+//  *  @param   p_params An unused pointer to (no) parameters passed to this task
+//  */
+
+// void task_fast (void* p_params)
+// {
+//     Serial << "Start Task Fast" << endl;
+
+//     // Configures the pin as an output
+//     pinMode (FAST_PIN, OUTPUT);
+
+//     // Sets the delay for 1 ms
+//     const TickType_t FAST_DELAY = 1;
+
+//     while (true)
+//     {
+//         digitalWrite (FAST_PIN, HIGH);
+//         vTaskDelay (FAST_DELAY);
+//         digitalWrite(FAST_PIN, LOW);
+//         vTaskDelay (FAST_DELAY);
+//     }
+// }
+
+
 void setup(void) {
   Serial.begin(115200);
   while (!Serial)
     delay(10); // will pause Zero, Leonardo, etc until serial console opens
-
-  Serial.println("Adafruit MPU6050 test!");
 
   // // Hand Servo Setup and sequence
   // ThumbServo.attach(THUMB_PIN);
@@ -152,9 +183,15 @@ void setup(void) {
   Serial.println("");
   delay(100);
 
+  // // Task which runs the web server. It runs at a low priority
+  // xTaskCreate (task_webserver, "Web Server", 8192, NULL, 2, NULL);
+
+  // Task which produces a square wave (again) at a high priority
+  // xTaskCreate (task_fast, "500 Hz", 1024, NULL, 5, NULL);
   xTaskCreate (task_flx, "Flex Sensor", 2048, NULL, 4, NULL);
   xTaskCreate (task_fingers, "Finger Servos", 2048, NULL, 5, NULL);
   xTaskCreate (task_print, "Print PWM", 2048, NULL, 1, NULL);
+  // xTaskCreate (task_mqtt, "MQTT", 2048, NULL, 2, NULL);
 
 }
 
@@ -211,5 +248,6 @@ void setup(void) {
 //         vTaskDelay(50);            
 //     } 
 // }
+
 
 void loop (void) {}
