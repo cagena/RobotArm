@@ -183,10 +183,13 @@ void handle_IMU (void)
 
     // Create some fake data and put it into a String object. We could just
     // as easily have taken values from a data array, if such an array existed
-    IMU_str += String (ax_pwm.get());
-    IMU_str += ",";
-    IMU_str += String (ay_pwm.get());
-    IMU_str += "\n";
+    for (uint8_t index = 0; index < 100; index++)
+    {
+        IMU_str += String (ax_pwm.get());
+        IMU_str += ",";
+        IMU_str += String (ay_pwm.get());
+        IMU_str += "\n";
+    }
 
     // Send the CSV file as plain text so it can be easily saved as a file
     server.send (404, "text/plain", IMU_str);
