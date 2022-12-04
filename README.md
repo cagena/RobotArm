@@ -3,13 +3,18 @@
 ![alt text](System_Overview.jpg)
 Figure 1. System Overview
 
+![alt text](System_Overview.MOV)
+Figure 2. System Overview
+
 ## Introduction
 
 Our device is a robot arm that reads flex sensors and an IMU on a glove then mimics the motion.
 
-## Hardware Overview
+## Mechanical Overview
 
-The following table displays all of our mechanical components used in this project. Fasteners such as screws, bolts, and nuts are not listed.
+## Glove
+
+The following table displays all of the components on the controlling glove.
 
 | Part No.  | Part                              |  Qty. | Source            |
 |:---------:|:----------------------------------|:-----:|:------------------|
@@ -18,6 +23,8 @@ The following table displays all of our mechanical components used in this proje
 |    3      | Rigid Flange Shaft Coupling       |   1   | Amazon            |
 |    4      | Ball Bearing                      |   1   | Amazon            |
 |    5      | Glove                             |   1   | Home Depot        | 
+
+## Custom PCB
 
 The following table displays all of our custom pcb components used in this project.
 
