@@ -26,6 +26,7 @@ var NAVTREE =
 [
   [ "Robot Arm - ME 507 Term Project", "index.html", [
     [ "Introduction", "index.html#intro", null ],
+    [ "Software Design", "index.html#software", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
@@ -38,7 +39,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"dir_10900b957163df6f20def5f47796a8fa.html"
+"_robot_arm___flex_2src_2main_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

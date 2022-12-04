@@ -1,8 +1,10 @@
 /** @file task_flx.h
  *  This is the header file for the flex sensor task.
  * 
- *  @author Corey Agena, Daniel Ceja, Parker Tenney
- *  @date   November 25, 2022
+ *  @author Corey Agena
+ *  @author Daniel Ceja
+ *  @author Parker Tenney
+ *  @date   2022-Nov-25
  */
 
 

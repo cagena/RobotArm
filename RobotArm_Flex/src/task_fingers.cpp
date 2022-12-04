@@ -1,10 +1,13 @@
 /** @file task_fingers.cpp
  *  This file contains code to run the servo motors.
  * 
- *  @author Corey Agena, Daniel Ceja, Parker Tenney
- *  @date   November 25, 2022
+ *  @author Corey Agena
+ *  @author Daniel Ceja
+ *  @author Parker Tenney
+ *  @date   2022-Nov-25
  */
 
+// Include the relevant libraries.
 #include <Arduino.h>
 #include <PrintStream.h>
 #include <ESP32Servo.h>
@@ -14,14 +17,14 @@
 #include "shares.h"
 #include "task_fingers.h"
 
-//Defining Finger Servos 
+// Define the pins used to run the finger servo motors. 
 #define THUMB_PIN 16 
 #define POINTER_PIN 17
 #define MIDDLE_PIN 5
 #define RING_PIN 18
 #define PINKY_PIN 19
 
-// Hand Servos
+// Define Servo objects for each finger on the hand.
 Servo ThumbServo;
 Servo PointerServo;
 Servo MiddleServo;
@@ -34,13 +37,14 @@ Servo PinkyServo;
  */
 void task_fingers (void* p_params)
 {
-    // Hand Servo Setup and sequence
+    // Hand Servo setup, attach the servo objects to its corresponding pin.
     ThumbServo.attach(THUMB_PIN);
     PointerServo.attach(POINTER_PIN);
     MiddleServo.attach(MIDDLE_PIN);
     RingServo.attach(RING_PIN);
     PinkyServo.attach(PINKY_PIN);
 
+    // A on and off state were created for each finger.
     while (true)
     {
         if (thumb_pwm.get() >= 50)

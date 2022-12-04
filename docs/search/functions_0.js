@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['task_5ffingers_0',['task_fingers',['../task__fingers_8cpp.html#a50b33b6e072866c64fe2b8e6f561ea8e',1,'task_fingers(void *p_params):&#160;task_fingers.cpp'],['../task__fingers_8h.html#a50b33b6e072866c64fe2b8e6f561ea8e',1,'task_fingers(void *p_params):&#160;task_fingers.cpp']]],
-  ['task_5fflx_1',['task_flx',['../task__flx_8cpp.html#a0a0b0e86d42846c456a7a6dbe06fe328',1,'task_flx(void *p_params):&#160;task_flx.cpp'],['../task__flx_8h.html#a0a0b0e86d42846c456a7a6dbe06fe328',1,'task_flx(void *p_params):&#160;task_flx.cpp']]],
-  ['task_5fimu_2',['task_imu',['../task__imu_8cpp.html#ac6ba0f92efef454ecc7f21e9f282c92c',1,'task_imu(void *p_params):&#160;task_imu.cpp'],['../task__imu_8h.html#ac6ba0f92efef454ecc7f21e9f282c92c',1,'task_imu(void *p_params):&#160;task_imu.cpp']]]
+  ['handle_5fdocumentroot_0',['handle_DocumentRoot',['../_robot_arm___i_m_u_2src_2main_8cpp.html#ab25b75a0fc1cc2eb45e7afa0f57b4a6a',1,'main.cpp']]],
+  ['handle_5fimu_1',['handle_IMU',['../_robot_arm___i_m_u_2src_2main_8cpp.html#a15bd2015cc67acb589d676d989454802',1,'main.cpp']]],
+  ['handle_5fnotfound_2',['handle_NotFound',['../_robot_arm___i_m_u_2src_2main_8cpp.html#ac0b9ea1d435271c3832076b57b803da7',1,'main.cpp']]],
+  ['html_5fheader_3',['HTML_header',['../_robot_arm___i_m_u_2src_2main_8cpp.html#a56d51c0dcf49cb5bc93d901581d3fed2',1,'main.cpp']]]
 ];
