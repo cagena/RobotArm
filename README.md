@@ -3,9 +3,6 @@
 ![alt text](System_Overview.jpg)
 Figure 1. System Overview
 
-<video src='System_Overview.mov' width=180/>
-Figure 2. System Overview
-
 ## Introduction
 
 Our device is a robot arm that reads flex sensors and an IMU on a glove then mimics the motion.
