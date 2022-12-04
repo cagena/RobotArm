@@ -32,7 +32,7 @@ The following table displays all of our custom pcb components used in this proje
 |    7      | Surface capacitor 0.1 uF 805      |   1   | Mouser            | 
 |    8      | Surface capacitor 10 uF 805       |   1   | Mouser            |
 |    9      | Farite Bead 805 package           |   1   | Mouser            |
-|    9      | Surface resistor 2000 ohm 805     |   1   | Mouser            |
+|   10      | Surface resistor 2000 ohm 805     |   1   | Mouser            |
 
 ## Software Overview
 
