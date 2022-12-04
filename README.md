@@ -3,7 +3,7 @@
 ![alt text](System_Overview.jpg)
 Figure 1. System Overview
 
-![alt text](System_Overview.MOV)
+<video src='System_Overview.MOV' width=180/>
 Figure 2. System Overview
 
 ## Introduction
