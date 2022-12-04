@@ -25,6 +25,8 @@ var NAVTREEINDEX0 =
 "globals.html":[2,1,0],
 "globals_func.html":[2,1,1],
 "index.html":[],
+"index.html#flex":[1,0],
+"index.html#imu":[1,1],
 "index.html#intro":[0],
 "index.html#software":[1],
 "mainpage_8h_source.html":[2,0,0,0,1],

@@ -91,10 +91,22 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="intro"></a>
 Introduction</h1>
-<p >The term project is to design a robot arm that can move at an elbow joing, wrist, and fingers. The arm will be operated by wearing a glove and moving it to desired positions.</p>
+<p >The term project is to design a robot arm that can move at an elbow joint, wrist, and fingers. The arm will be operated by wearing a glove and moving it to desired positions.</p>
 <h1><a class="anchor" id="software"></a>
 Software Design</h1>
-<p >Software is development in two parts one that interfaces with flex sensors and one that interfaces with an IMU. The code corresponding to the flex sensors control 5 finger servos. The code corresponding to the IMU control the wrist and arm motion, with a DC motor and linear actuator respectively. </p>
+<p >Software is development in two parts one that interfaces with flex sensors and one that interfaces with an IMU. The code is distinctly split and ran with two different ESP32 microcontrollers. The code corresponding to the flex sensors control 5 finger servos. The code corresponding to the IMU control the wrist and arm motion, with a DC motor and linear actuator respectively.</p>
+<h2><a class="anchor" id="flex"></a>
+Flex Sensor Portion</h2>
+<p >The flex sensor portion included 3 .cpp files and 3 .h files. The <a class="el" href="_robot_arm___flex_2src_2main_8cpp.html">RobotArm_Flex/src/main.cpp</a> file initializes the communication ports and starts the task manager. The <a class="el" href="task__flx_8cpp.html">task_flx.cpp</a> file reads the flex sensors and updates shared variables for the pwm. The <a class="el" href="task__fingers_8cpp.html">task_fingers.cpp</a> file uses the shared variables and runs the servo motors for each finger at the pwm determined from the flex sensors. The shares.h file includes declarations of shares used throughout the flex sensor portion. The <a class="el" href="task__fingers_8h.html">task_fingers.h</a> and <a class="el" href="task__flx_8h.html">task_flx.h</a> are header files for their respective tasks.</p>
+<h2><a class="anchor" id="imu"></a>
+IMU Portion</h2>
+<p >The flex sensor portion included 2 .cpp files and 2 .h files. The <a class="el" href="_robot_arm___i_m_u_2src_2main_8cpp.html">RobotArm_IMU/src/main.cpp</a> file initializes the communication ports and starts the task manager. The main file also includes the task_webpage and task_IMU. The webpage task creates a webpage that prints pwm values generated from the IMU readings and provided to the motors. The IMU task reads the IMU and updates shared variables for the pwm. The The <a class="el" href="task__wrist__arm_8cpp.html">task_wrist_arm.cpp</a> file uses the shared variables and runs the DC motor for the wrist and the linear actuator for the arm at the pwm values determined from the IMU. The shares.h file includes declarations of shares used throughout the flex sensor portion. The <a class="el" href="task__wrist__arm_8h.html">task_wrist_arm.h</a> is a header file for its tasks</p>
+<dl class="section author"><dt>Author</dt><dd>Corey Agena </dd>
+<dd>
+Daniel Ceja </dd>
+<dd>
+Parker Tenney </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2022-Dec-03 </dd></dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

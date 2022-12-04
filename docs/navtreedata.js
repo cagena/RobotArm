@@ -26,7 +26,10 @@ var NAVTREE =
 [
   [ "Robot Arm - ME 507 Term Project", "index.html", [
     [ "Introduction", "index.html#intro", null ],
-    [ "Software Design", "index.html#software", null ],
+    [ "Software Design", "index.html#software", [
+      [ "Flex Sensor Portion", "index.html#flex", null ],
+      [ "IMU Portion", "index.html#imu", null ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
