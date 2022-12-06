@@ -42,6 +42,8 @@ The following table displays all of our custom pcb components used in this proje
 
 Software Documentation: https://cagena.github.io/RobotArm/
 
+![](images/ROBOT_ARM_DIAGRAMS.jpg)
+
 ## Results
 
 ## Additional Links
