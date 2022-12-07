@@ -2,6 +2,6 @@
 
 Final Report: https://github.com/cagena/RobotArm/blob/cdb2672b1c400aa823a34b94742e1327292d1ba2/Agena_Ceja_Tenney_ME507_Report.pdf
 
-Working Prototype: https://youtube.com/shorts/G3eh66s_egA
+Video of Working Prototype: https://youtube.com/shorts/G3eh66s_egA
 
 
