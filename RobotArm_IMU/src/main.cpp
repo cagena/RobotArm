@@ -150,8 +150,6 @@ void handle_DocumentRoot ()
     a_str += "<body>\n<div id=\"webpage\">\n";
     a_str += "<h1>Test Main Page</h1>\n";
     a_str += "...or is it Main Test Page?\n";
-    // a_str += "<p><p> <a href=\"/toggle\">Toggle Pinky</a>\n";
-    // a_str += "<p><p> <a href=\"/csv\">Show some data in CSV format</a>\n";
     a_str += "<p><p> <a href=\"/csv\">IMU data</a>\n";
     a_str += "</div>\n</body>\n</html>\n";
 
@@ -181,7 +179,7 @@ void handle_IMU (void)
 
     // Create some fake data and put it into a String object. We could just
     // as easily have taken values from a data array, if such an array existed
-    for (uint8_t index = 0; index < 100; index++)
+    for (uint8_t index = 0; index < 20; index++)
     {
         IMU_str += String (ax_pwm.get());
         IMU_str += ",";
@@ -207,8 +205,6 @@ void task_webserver (void* p_params)
     // is accessed as a global object because not only this function but also
     // the page handling functions referenced below need access to the server
     server.on ("/", handle_DocumentRoot);
-    // server.on ("/toggle", handle_Toggle_pinky);
-    // server.on ("/csv", handle_CSV);
     server.on ("/csv", handle_IMU);
     server.onNotFound (handle_NotFound);
 
